@@ -1,21 +1,30 @@
 package soilsense.backend.model;
 
+import org.springframework.data.annotation.Id;
+
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
-public class ScanStation {
+@Entity
+public class Station {
+    @Id
     private String name;
+
+    @Column(nullable = false)
     private Date start;
+
+    @Column(nullable = false)
     private Coords coords;
+
+    @Column(nullable = false)
     private float elevation;
+
+    @Column(nullable = false)
     private String county;
 
-    public ScanStation(String name, Date start, Coords coords, float elevation, String county) {
-        this.name = name;
-        this.start = start;
-        this.coords = coords;
-        this.elevation = elevation;
-        this.county = county;
-    }
 
     public String getName() {
         return name;

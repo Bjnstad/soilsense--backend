@@ -9,5 +9,4 @@ public class SoilsenseBackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SoilsenseBackendApplication.class, args);
 	}
-
 }
