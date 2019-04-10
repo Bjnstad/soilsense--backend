@@ -1,12 +1,1 @@
-package soilsense.backend;
-
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
-public class SoilsenseBackendApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(SoilsenseBackendApplication.class, args);
-	}
-}
+package soilsense.backend;import org.springframework.boot.SpringApplication;import org.springframework.boot.autoconfigure.SpringBootApplication;import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;import org.springframework.context.annotation.ComponentScan;@SpringBootApplication@ComponentScan(basePackages="soilsense.backend.controller")public class SoilsenseBackendApplication extends SpringBootServletInitializer {	public static void main(String[] args) {		SpringApplication.run(SoilsenseBackendApplication.class, args);	}}
