@@ -9,11 +9,17 @@ import java.io.Serializable;
 public class Station implements Serializable {
 
     @Id
+    @Column(nullable = false)
+    private Integer id;
+
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private String county;
+    private Float lat;
 
+    @Column(nullable = false)
+    private Float lng;
 
 
     public String getName() {
@@ -24,11 +30,27 @@ public class Station implements Serializable {
         this.name = name;
     }
 
-    public String getCounty() {
-        return county;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Float getLng() {
+        return lng;
+    }
+
+    public void setLng(Float lng) {
+        this.lng = lng;
+    }
+
+    public Float getLat() {
+        return lat;
+    }
+
+    public void setLat(Float lat) {
+        this.lat = lat;
     }
 }
