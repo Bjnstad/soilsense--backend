@@ -27,6 +27,11 @@ public class StationController {
         return station;
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteStation(@PathVariable Integer id ) {
+        stationRepository.deleteById(id);
+    }
+
 
 
 
