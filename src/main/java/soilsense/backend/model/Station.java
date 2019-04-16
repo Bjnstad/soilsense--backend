@@ -1,12 +1,14 @@
 package soilsense.backend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Entity
 public class Station implements Serializable {
+
 
     @Id
     @Column(nullable = false)
@@ -21,36 +23,17 @@ public class Station implements Serializable {
     @Column(nullable = false)
     private Float lng;
 
+    @OneToMany(mappedBy = "station", cascade = CascadeType.REMOVE)
+    private Set<Day> days;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Station(Integer id, String name, Float lat, Float lng, Day... days) {
         this.id = id;
-    }
-
-    public Float getLng() {
-        return lng;
-    }
-
-    public void setLng(Float lng) {
-        this.lng = lng;
-    }
-
-    public Float getLat() {
-        return lat;
-    }
-
-    public void setLat(Float lat) {
+        this.name = name;
         this.lat = lat;
+        this.lng = lng;
+        this.days = Stream.of(days).collect(Collectors.toSet());
+        //this.days.forEach(x -> x.setDay(this));
     }
 }
+
+
