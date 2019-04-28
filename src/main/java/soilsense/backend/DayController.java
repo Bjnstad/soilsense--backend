@@ -17,24 +17,20 @@ public class DayController {
     }
 
     /**
-     * @param day
+     * @param days
      * @return
      */
     @PostMapping
-    public Day addDay(@RequestBody Day day) {
-        dayRepository.save(day);
-        return day;
+    public boolean addDay(@RequestBody List<Day> days) {
+        for(Day day : days) dayRepository.save(day);
+        return true;
     }
 
-    /**
-     * Get all days from a station
-     * @param id Station id.
-     * @return List of days.
-     */
     @GetMapping("/{id}")
-    public List<Day> getStation(@PathVariable Integer id ) {
-        return dayRepository.getAllByStation_Id(id);
+    public List<Day> getDays(@PathVariable Integer id) {
+        return dayRepository.getAllByStationId(id);
     }
+
 
     @DeleteMapping("/{id}")
     public void deleteStation(@PathVariable Integer id ) {

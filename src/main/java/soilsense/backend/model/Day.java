@@ -12,9 +12,7 @@ public class Day {
     @GeneratedValue
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn
-    private Station station;
+    private Integer stationId;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @Column(nullable = false)
@@ -25,4 +23,46 @@ public class Day {
 
     @Column(nullable = false)
     private Float precip;
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getStationId() {
+        return stationId;
+    }
+
+    public void setStationId(Integer stationId) {
+        this.stationId = stationId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Float getMoisture() {
+        return moisture;
+    }
+
+    public void setMoisture(Float moisture) {
+        this.moisture = moisture;
+    }
+
+    public Float getPrecip() {
+        return precip;
+    }
+
+    public void setPrecip(Float precip) {
+        this.precip = precip;
+    }
 }
