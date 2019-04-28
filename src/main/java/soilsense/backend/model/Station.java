@@ -8,7 +8,7 @@ public class Station implements Serializable {
 
 
     @Id
-    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     public Integer getId() {
@@ -35,7 +35,6 @@ public class Station implements Serializable {
 
     @Column(nullable = false)
     private Float lng;
-
 
     public Float getLng() {
         return lng;
